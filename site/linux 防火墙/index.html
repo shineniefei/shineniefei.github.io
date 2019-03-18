@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>防火墙设置 - My Docs</title>
+        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="..">My Docs</a>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li >
+                                <a href="..">Welcome to MkDocs</a>
+                            </li>
+                            <li >
+                                <a href="../bash shell 简单使用/">bash shell 简单使用</a>
+                            </li>
+                            <li >
+                                <a href="../docker/">docker install</a>
+                            </li>
+                            <li >
+                                <a href="../git/">Git</a>
+                            </li>
+                            <li >
+                                <a href="../hello-world/">Hello World</a>
+                            </li>
+                            <li >
+                                <a href="../install jenkins/">install jenkins</a>
+                            </li>
+                            <li >
+                                <a href="../linux  ifcfg eth 配置/">linux ifcfg eth 配置</a>
+                            </li>
+                            <li >
+                                <a href="../linux install mysql/">MySQL Install</a>
+                            </li>
+                            <li >
+                                <a href="../linux 压缩解压类命令/">linux 压缩解压类 命令</a>
+                            </li>
+                            <li class="active">
+                                <a href="./">防火墙设置</a>
+                            </li>
+                            <li >
+                                <a href="../python3 selenium简单使用/">selenium python</a>
+                            </li>
+                            <li >
+                                <a href="../python3随机生成手机号/">python3随机生成手机号</a>
+                            </li>
+                            <li >
+                                <a href="../python3随机生成身份证/">python3随机生成身份证</a>
+                            </li>
+                            <li >
+                                <a href="../python3随机生成银行卡号/">python3随机生成银行卡号</a>
+                            </li>
+                            <li >
+                                <a href="../vim/">vim</a>
+                            </li>
+                            <li >
+                                <a href="../vimium/">vimium</a>
+                            </li>
+                            <li >
+                                <a href="../win apache python wsgi/">windows在apache中使用mod_wsgi部署flask</a>
+                            </li>
+                            <li >
+                                <a href="../windows install mysql/">win10 下 安装 mysql 8</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li >
+                                <a rel="next" href="../linux 压缩解压类命令/">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li >
+                                <a rel="prev" href="../python3 selenium简单使用/">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#suse">SUSE</a></li>
+        <li class="main "><a href="#centos-7">CentOS 7</a></li>
+        <li class="main "><a href="#centos-6">Centos 6</a></li>
+        <li class="main "><a href="#_1">重启网络服务</a></li>
+        <li class="main "><a href="#_2">防火墙开放端口</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="suse">SUSE</h1>
+<pre><code>SuSEfirewall2 stop   #停止firewall
+
+chkconfig SuSEfirewall2_setup off   #禁止firewall开机启动1
+chkconfig SuSEfirewall2_init off  #禁止firewall开机启动2
+
+chkconfig --list|grep fire    #查看防火墙状态
+</code></pre>
+
+<h1 id="centos-7">CentOS 7</h1>
+<hr />
+<pre><code>systemctl status firewalld  #firewall状态
+systemctl start firewalld.service        #启动firewall
+systemctl stop firewalld.service        #停止firewall
+systemctl disable firewalld.service  #禁止firewall开机启动
+</code></pre>
+
+<h1 id="centos-6">Centos 6</h1>
+<hr />
+<pre><code>service iptables stop     #关闭防火墙
+service iptables start    #启动防火墙
+service iptables restart  #重启防火墙
+service iptables status   #查看防火墙状态
+chkconfig iptables off    #永久关闭防火墙
+chkconfig iptables on    #永久关闭后启用
+</code></pre>
+
+<h1 id="_1">重启网络服务</h1>
+<hr />
+<pre><code>service network restart
+</code></pre>
+
+<h1 id="_2">防火墙开放端口</h1>
+<hr />
+<ol>
+<li>SuSE默认的防火墙设置为禁止所有外来联结。 如果你想开放某个端口的话，就得修改防火墙设置开放这个端口。</li>
+<li>修改SuSE的防火墙设置以开放某指定端口，手动修改：</li>
+</ol>
+<p><code>vi /etc/sysconfig/SuSEfirewall2</code></p>
+<p><code>FW_SERVICES_EXT_TCP = "6000"     #TCP端口的情况
+  FW_SERVICES_EXT_UDP = "177"    #UDP端口的情况</code></p>
+<p><code>rcSuSEfirewall2 restart    #防火墙设置重启生效</code></p>
+<ol>
+<li>添加防火墙规则：</li>
+</ol>
+<p><code>iptable -A INPUT -p udp -s 0/0 -d 0/0 --dport 177 -j ACCEPT</code></p></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

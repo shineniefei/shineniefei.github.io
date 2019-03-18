@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>win10 下 安装 mysql 8 - My Docs</title>
+        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="..">My Docs</a>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li >
+                                <a href="..">Welcome to MkDocs</a>
+                            </li>
+                            <li >
+                                <a href="../bash shell 简单使用/">bash shell 简单使用</a>
+                            </li>
+                            <li >
+                                <a href="../docker/">docker install</a>
+                            </li>
+                            <li >
+                                <a href="../git/">Git</a>
+                            </li>
+                            <li >
+                                <a href="../hello-world/">Hello World</a>
+                            </li>
+                            <li >
+                                <a href="../install jenkins/">install jenkins</a>
+                            </li>
+                            <li >
+                                <a href="../linux  ifcfg eth 配置/">linux ifcfg eth 配置</a>
+                            </li>
+                            <li >
+                                <a href="../linux install mysql/">MySQL Install</a>
+                            </li>
+                            <li >
+                                <a href="../linux 压缩解压类命令/">linux 压缩解压类 命令</a>
+                            </li>
+                            <li >
+                                <a href="../linux 防火墙/">防火墙设置</a>
+                            </li>
+                            <li >
+                                <a href="../python3 selenium简单使用/">selenium python</a>
+                            </li>
+                            <li >
+                                <a href="../python3随机生成手机号/">python3随机生成手机号</a>
+                            </li>
+                            <li >
+                                <a href="../python3随机生成身份证/">python3随机生成身份证</a>
+                            </li>
+                            <li >
+                                <a href="../python3随机生成银行卡号/">python3随机生成银行卡号</a>
+                            </li>
+                            <li >
+                                <a href="../vim/">vim</a>
+                            </li>
+                            <li >
+                                <a href="../vimium/">vimium</a>
+                            </li>
+                            <li >
+                                <a href="../win apache python wsgi/">windows在apache中使用mod_wsgi部署flask</a>
+                            </li>
+                            <li class="active">
+                                <a href="./">win10 下 安装 mysql 8</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li >
+                                <a rel="next" href="../win apache python wsgi/">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="disabled">
+                                <a rel="prev" >
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#win10-mysql-8">win10 下 安装 mysql 8</a></li>
+            <li><a href="#_1">备注</a></li>
+            <li><a href="#_2">问题</a></li>
+            <li><a href="#_3">其他</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="win10-mysql-8">win10 下 安装 mysql 8</h1>
+<ol>
+<li>首先去官网下载安装包</li>
+</ol>
+<p><code>txt
+  https://dev.mysql.com/downloads/mysql/</code></p>
+<ol>
+<li>解压mysql到你安装的目录：E:/DB/mysql-8.0.11</li>
+<li>在E:/DB/mysql-8.0.11文件夹下面新建一个my.ini文件,内容如下： </li>
+</ol>
+<p><code>txt
+  [mysqld]
+   # 设置3306端口
+   port=3306
+   # 设置mysql的安装目录
+   basedir=E:/DB/mysql-8.0.11
+   # 设置mysql数据库的数据的存放目录
+   datadir=E:/DB/mysql-8.0.11/data
+   # 允许最大连接数
+   max_connections=200
+   # 允许连接失败的次数。这是为了防止有人从该主机试图攻击数据库系统
+   max_connect_errors=10
+   # 服务端使用的字符集默认为UTF8
+   character-set-server=utf8
+   # 创建新表时将使用的默认存储引擎
+   default-storage-engine=INNODB
+   [mysql]
+   # 设置mysql客户端默认字符集
+   default-character-set=utf8
+   [client]
+   # 设置mysql客户端连接服务端时默认使用的端口
+   port=3306
+   default-character-set=utf8</code></p>
+<ol>
+<li>到E:/DB/mysql-8.0.11/bin路径下，以管理员的身份打开cmd窗口，执行初始化命令</li>
+</ol>
+<p><code>cmd
+  mysqld --initialize --user=mysql --console</code></p>
+<p><em>一定要进行初始化,注意把临时密码记住</em></p>
+<ol>
+<li>输入如下命令，进行服务的添加</li>
+</ol>
+<p><code>cmd
+  mysqld -install</code></p>
+<ol>
+<li>输入如下命令，启动服务</li>
+</ol>
+<p><code>cmd
+  net start mysql</code></p>
+<ol>
+<li>输入如下命令，进行登录数据库，用上面记住的密码登录</li>
+</ol>
+<p><code>cmd
+  mysql -u root -p</code></p>
+<ol>
+<li>输入如下命令，，修改密码语句：</li>
+</ol>
+<p><code>sql
+  ALTER USER root@localhost IDENTIFIED  BY 'root';
+   #修改密码为：root</code></p>
+<ol>
+<li>修改密码验证方式</li>
+</ol>
+<p><code>sql
+  ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root';</code></p>
+<h2 id="_1"><strong><em>备注</em></strong></h2>
+<h3 id="80">8.0之前版本，忘记密码修改方法</h3>
+<ol>
+<li>找到bin目录：执行</li>
+</ol>
+<p><code>cmd
+  mysqld --skip-grant-tables</code></p>
+<ol>
+<li>重新在开一个cmd窗口在bin目录执行</li>
+</ol>
+<p><code>cmd
+  mysql</code></p>
+<ol>
+<li>就进入登陆状态了</li>
+</ol>
+<h3 id="5722">5.7.22修改密码</h3>
+<ol>
+<li>执行</li>
+</ol>
+<p><code>sql
+  update user set authentication_string=password('123456') where user='root' and host='localhost';</code></p>
+<h3 id="56">5.6.修改密码</h3>
+<ol>
+<li>执行：</li>
+</ol>
+<p><code>sql
+  update user set password=password('123456') where user='root' and host='localhost';</code></p>
+<h2 id="_2">问题</h2>
+<p>在cmd 下mysql服务mysql服务无法启动</p>
+<pre><code class="cmd">mysqld --console
+</code></pre>
+
+<h2 id="_3">其他</h2>
+<p>max_connect_errors = 10</p>
+<p>配置说明</p>
+<p>当此值设置为10时，意味着如果某一客户端尝试连接此MySQL服务器，但是失败10次，则MySQL会阻止此客户端连接。<br>
+重置此计数器的值，必须重启MySQL服务器<br>
+或者执行<code>FLUSH HOSTS;</code></p></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

@@ -1,0 +1,1338 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>vim - My Docs</title>
+        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="..">My Docs</a>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li >
+                                <a href="..">Welcome to MkDocs</a>
+                            </li>
+                            <li >
+                                <a href="../bash shell 简单使用/">bash shell 简单使用</a>
+                            </li>
+                            <li >
+                                <a href="../docker/">docker install</a>
+                            </li>
+                            <li >
+                                <a href="../git/">Git</a>
+                            </li>
+                            <li >
+                                <a href="../hello-world/">Hello World</a>
+                            </li>
+                            <li >
+                                <a href="../install jenkins/">install jenkins</a>
+                            </li>
+                            <li >
+                                <a href="../linux  ifcfg eth 配置/">linux ifcfg eth 配置</a>
+                            </li>
+                            <li >
+                                <a href="../linux install mysql/">MySQL Install</a>
+                            </li>
+                            <li >
+                                <a href="../linux 压缩解压类命令/">linux 压缩解压类 命令</a>
+                            </li>
+                            <li >
+                                <a href="../linux 防火墙/">防火墙设置</a>
+                            </li>
+                            <li >
+                                <a href="../python3 selenium简单使用/">selenium python</a>
+                            </li>
+                            <li >
+                                <a href="../python3随机生成手机号/">python3随机生成手机号</a>
+                            </li>
+                            <li >
+                                <a href="../python3随机生成身份证/">python3随机生成身份证</a>
+                            </li>
+                            <li >
+                                <a href="../python3随机生成银行卡号/">python3随机生成银行卡号</a>
+                            </li>
+                            <li class="active">
+                                <a href="./">vim</a>
+                            </li>
+                            <li >
+                                <a href="../vimium/">vimium</a>
+                            </li>
+                            <li >
+                                <a href="../win apache python wsgi/">windows在apache中使用mod_wsgi部署flask</a>
+                            </li>
+                            <li >
+                                <a href="../windows install mysql/">win10 下 安装 mysql 8</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li >
+                                <a rel="next" href="../python3随机生成银行卡号/">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li >
+                                <a rel="prev" href="../vimium/">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#vim">VIM使用</a></li>
+            <li><a href="#_1">写在前面</a></li>
+            <li><a href="#_2">状态模式</a></li>
+            <li><a href="#_3">光标控制</a></li>
+            <li><a href="#_4">屏幕调整</a></li>
+            <li><a href="#_5">插入文本</a></li>
+            <li><a href="#_6">删除文本</a></li>
+            <li><a href="#_7">修改文本</a></li>
+            <li><a href="#_8">复制文本</a></li>
+            <li><a href="#_9">撤消恢复</a></li>
+            <li><a href="#_10">查找与替换</a></li>
+            <li><a href="#_11">重复</a></li>
+            <li><a href="#_12">保存和退出</a></li>
+            <li><a href="#vi">vi中的选项</a></li>
+            <li><a href="#vi_1">vi命令</a></li>
+            <li><a href="#_13">在文本中定位段落和放置标记</a></li>
+            <li><a href="#vi_2">在vi中连接行</a></li>
+            <li><a href="#vishell">vi中的shell转义命令</a></li>
+            <li><a href="#vi_3">vi中的宏与缩写</a></li>
+            <li><a href="#vi_4">在vi中缩进文本</a></li>
+            <li><a href="#vim_1">vim配置</a></li>
+            <li><a href="#gvim">gvim不生成备份文件</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="vim">VIM使用</h1>
+<h2 id="_1">写在前面</h2>
+<p>内容来自网络总结</p>
+<h2 id="_2">状态模式</h2>
+<table>
+<thead>
+<tr>
+<th align="center">按键</th>
+<th align="left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">i</td>
+<td align="left">进入 插入 模式</td>
+</tr>
+<tr>
+<td align="center">ni</td>
+<td align="left">进入 重复插入 模式</td>
+</tr>
+<tr>
+<td align="center">ESC</td>
+<td align="left">返回 命令 模式</td>
+</tr>
+<tr>
+<td align="center">v</td>
+<td align="left">进入 可视 模式</td>
+</tr>
+<tr>
+<td align="center">V</td>
+<td align="left">进入 行可视 模式</td>
+</tr>
+<tr>
+<td align="center">CTRL+v</td>
+<td align="left">进入 块可视 作模式</td>
+</tr>
+<tr>
+<td align="center">Ixxx</td>
+<td align="left">在被选中的块的前面插入xxx</td>
+</tr>
+<tr>
+<td align="center">0Ixxx</td>
+<td align="left">在被选中的块的每一行的行首插入xxx</td>
+</tr>
+<tr>
+<td align="center">Axxx</td>
+<td align="left">在被选中的块的后面追加xxx</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_3">光标控制</h2>
+<table>
+<thead>
+<tr>
+<th align="center">按键</th>
+<th align="left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">k</td>
+<td align="left">向上移一行</td>
+</tr>
+<tr>
+<td align="center">j</td>
+<td align="left">向下移一行</td>
+</tr>
+<tr>
+<td align="center">h</td>
+<td align="left">向左移一列</td>
+</tr>
+<tr>
+<td align="center">l</td>
+<td align="left">向右移一列</td>
+</tr>
+<tr>
+<td align="center">nk</td>
+<td align="left">向上移动n行</td>
+</tr>
+<tr>
+<td align="center">nh</td>
+<td align="left">向左移动n列</td>
+</tr>
+<tr>
+<td align="center">gg</td>
+<td align="left">移到到第一行</td>
+</tr>
+<tr>
+<td align="center">G</td>
+<td align="left">移到文件的最后一行</td>
+</tr>
+<tr>
+<td align="center">nG或<code>:</code>n</td>
+<td align="left">移到文件的第n行</td>
+</tr>
+<tr>
+<td align="center">L</td>
+<td align="left">移到屏幕的最后一行</td>
+</tr>
+<tr>
+<td align="center">M</td>
+<td align="left">移到屏幕的中间一行</td>
+</tr>
+<tr>
+<td align="center">H</td>
+<td align="left">移到屏幕的第一行</td>
+</tr>
+<tr>
+<td align="center">(</td>
+<td align="left">移到句子的开头</td>
+</tr>
+<tr>
+<td align="center">)</td>
+<td align="left">移到句子的结尾</td>
+</tr>
+<tr>
+<td align="center">{</td>
+<td align="left">移到段落的开头</td>
+</tr>
+<tr>
+<td align="center">}</td>
+<td align="left">移到下一个段落开头</td>
+</tr>
+<tr>
+<td align="center">%</td>
+<td align="left">移动到与制匹配的括号上去（），{}，[]，&lt;&gt;等</td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td align="left">移到当前行的开头</td>
+</tr>
+<tr>
+<td align="center">n<code>|</code></td>
+<td align="left">移到当前行的第n列</td>
+</tr>
+<tr>
+<td align="center">$</td>
+<td align="left">移到当前行的最后(块模式下，$将块选择中的每一行都扩展至行尾)</td>
+</tr>
+<tr>
+<td align="center">n$</td>
+<td align="left">移动到第n行的行尾</td>
+</tr>
+<tr>
+<td align="center">^</td>
+<td align="left">移到当前行的第一个非空字符</td>
+</tr>
+<tr>
+<td align="center">e</td>
+<td align="left">向后移一个单词到结尾</td>
+</tr>
+<tr>
+<td align="center">ne</td>
+<td align="left">向后移n个单词到结尾</td>
+</tr>
+<tr>
+<td align="center">E</td>
+<td align="left">向后移一个单词到结尾，忽略标点符号</td>
+</tr>
+<tr>
+<td align="center">b</td>
+<td align="left">向前移一个单词到开头</td>
+</tr>
+<tr>
+<td align="center">nb</td>
+<td align="left">向前移n个单词到开头</td>
+</tr>
+<tr>
+<td align="center">B</td>
+<td align="left">向前移一个单词到开头，忽略标点符号</td>
+</tr>
+<tr>
+<td align="center">w</td>
+<td align="left">向后移一个单词到开头</td>
+</tr>
+<tr>
+<td align="center">W</td>
+<td align="left">向后移一个单词到开头，忽略标点符号</td>
+</tr>
+<tr>
+<td align="center">+或Enter</td>
+<td align="left">移到下一行的第一个字符</td>
+</tr>
+<tr>
+<td align="center"><code>-</code></td>
+<td align="left">移到前一行的第一个非空字符</td>
+</tr>
+<tr>
+<td align="center">[[</td>
+<td align="left">光标跳转到代码块开头即{处,要求{独占一行</td>
+</tr>
+<tr>
+<td align="center">gD</td>
+<td align="left">光标跳转到局部变量定义处</td>
+</tr>
+<tr>
+<td align="center">''</td>
+<td align="left">光标跳转到上次停靠处</td>
+</tr>
+<tr>
+<td align="center">ggVG</td>
+<td align="left">全选文本</td>
+</tr>
+<tr>
+<td align="center">gg=G</td>
+<td align="left">排版文本</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_4">屏幕调整</h2>
+<table>
+<thead>
+<tr>
+<th align="center">按键</th>
+<th align="left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">H</td>
+<td align="left">将光标移动到屏幕的顶行</td>
+</tr>
+<tr>
+<td align="center">nH</td>
+<td align="left">将光标移动到屏幕顶行下的第n行</td>
+</tr>
+<tr>
+<td align="center">M</td>
+<td align="left">将光标移动到屏幕的中间</td>
+</tr>
+<tr>
+<td align="center">L</td>
+<td align="left">将光标移动到屏幕的底行</td>
+</tr>
+<tr>
+<td align="center">nL</td>
+<td align="left">将光标移动到屏幕底行上的第n行</td>
+</tr>
+<tr>
+<td align="center">CTRL+e</td>
+<td align="left">将屏幕上滚一行</td>
+</tr>
+<tr>
+<td align="center">CTRL+y</td>
+<td align="left">将屏幕下滚一行</td>
+</tr>
+<tr>
+<td align="center">CTRL+u</td>
+<td align="left">将屏幕上滚半页</td>
+</tr>
+<tr>
+<td align="center">CTRL+d</td>
+<td align="left">将屏幕下滚半页</td>
+</tr>
+<tr>
+<td align="center">CTRL+b</td>
+<td align="left">将屏幕上滚一页</td>
+</tr>
+<tr>
+<td align="center">CTRL+f</td>
+<td align="left">将屏幕下滚一页</td>
+</tr>
+<tr>
+<td align="center">CTRL+l</td>
+<td align="left">重绘屏幕</td>
+</tr>
+<tr>
+<td align="center">z+RETURN</td>
+<td align="left">将光标所在的那一行移至屏幕顶部</td>
+</tr>
+<tr>
+<td align="center">z-RETURN</td>
+<td align="left">将当前行置为屏幕的顶行</td>
+</tr>
+<tr>
+<td align="center">nz-RETURN</td>
+<td align="left">将当前行下的第n行置为屏幕的顶行</td>
+</tr>
+<tr>
+<td align="center">z.</td>
+<td align="left">将当前行置为屏幕的中央</td>
+</tr>
+<tr>
+<td align="center">nz.</td>
+<td align="left">将当前行上的第n行置为屏幕的中央</td>
+</tr>
+<tr>
+<td align="center">z-</td>
+<td align="left">将当前行置为屏幕的底行</td>
+</tr>
+<tr>
+<td align="center">nz-</td>
+<td align="left">将当前行上的第n行置为屏幕的底行</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_5">插入文本</h2>
+<table>
+<thead>
+<tr>
+<th align="center">按键</th>
+<th align="left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">a</td>
+<td align="left">在光标后插入文本</td>
+</tr>
+<tr>
+<td align="center">i</td>
+<td align="left">在光标前插入文本</td>
+</tr>
+<tr>
+<td align="center">A</td>
+<td align="left">在当前行尾插入文本</td>
+</tr>
+<tr>
+<td align="center">I</td>
+<td align="left">在当前行首插入文本</td>
+</tr>
+<tr>
+<td align="center">o</td>
+<td align="left">在当前行的下边插入新行</td>
+</tr>
+<tr>
+<td align="center">O</td>
+<td align="left">在当前行的上边插入新行</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_6">删除文本</h2>
+<table>
+<thead>
+<tr>
+<th align="center">按键</th>
+<th align="left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">x或dl</td>
+<td align="left">删除光标处的字符</td>
+</tr>
+<tr>
+<td align="center">nx</td>
+<td align="left">从当前光标处往后删除n个字符</td>
+</tr>
+<tr>
+<td align="center">X或dh</td>
+<td align="left">删除光标前的字符</td>
+</tr>
+<tr>
+<td align="center">nX</td>
+<td align="left">从当前光标处往前删除n个字符</td>
+</tr>
+<tr>
+<td align="center">d</td>
+<td align="left">剪切删除文字</td>
+</tr>
+<tr>
+<td align="center">D</td>
+<td align="left">从光标定位的行末删除文本</td>
+</tr>
+<tr>
+<td align="center">dw</td>
+<td align="left">删至下一个字的开头</td>
+</tr>
+<tr>
+<td align="center">ndw</td>
+<td align="left">从当前光标处往后删除n个字</td>
+</tr>
+<tr>
+<td align="center">dG</td>
+<td align="left">删除行，直到文件结束</td>
+</tr>
+<tr>
+<td align="center">dd</td>
+<td align="left">删除整行</td>
+</tr>
+<tr>
+<td align="center">dj</td>
+<td align="left">删除上一行</td>
+</tr>
+<tr>
+<td align="center">dk</td>
+<td align="left">删除下一行</td>
+</tr>
+<tr>
+<td align="center">ndd</td>
+<td align="left">从当前行开始往后删除n行</td>
+</tr>
+<tr>
+<td align="center">db</td>
+<td align="left">删除光标前面的字</td>
+</tr>
+<tr>
+<td align="center">ndb</td>
+<td align="left">从当前行开始往前删除n字</td>
+</tr>
+<tr>
+<td align="center">de</td>
+<td align="left">删除一个单词</td>
+</tr>
+<tr>
+<td align="center">d$</td>
+<td align="left">从光标处删除到行尾</td>
+</tr>
+<tr>
+<td align="center">d1G</td>
+<td align="left">删除光标所在行到第一行的所有数据</td>
+</tr>
+<tr>
+<td align="center">dgg</td>
+<td align="left">删除当前行到文件首部的所有行(包括当前行)</td>
+</tr>
+<tr>
+<td align="center">jdG</td>
+<td align="left">删除当前行之后所有行（包括当前行）</td>
+</tr>
+<tr>
+<td align="center"><code>:</code>n,md</td>
+<td align="left">n到m行之间的行（可用%或0,$表示全文）</td>
+</tr>
+<tr>
+<td align="center">CTRL+w</td>
+<td align="left">插入模式下，删除前面的字</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_7">修改文本</h2>
+<p>每个命令前面的数字表示该命令重复的次数</p>
+<table>
+<thead>
+<tr>
+<th align="center">按键</th>
+<th align="left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">rCHAR</td>
+<td align="left">用CHAR替换当前字符</td>
+</tr>
+<tr>
+<td align="center">R</td>
+<td align="left">从当前字符开始替换直到按下Esc键</td>
+</tr>
+<tr>
+<td align="center">s</td>
+<td align="left">删除当前字符并插入</td>
+</tr>
+<tr>
+<td align="center">S或cc</td>
+<td align="left">取代光标所在整行</td>
+</tr>
+<tr>
+<td align="center">cw</td>
+<td align="left">删除当前单词并插入</td>
+</tr>
+<tr>
+<td align="center">C</td>
+<td align="left">删除光标处到行尾字符并插入</td>
+</tr>
+<tr>
+<td align="center">cG</td>
+<td align="left">删除光标处到末尾并插入</td>
+</tr>
+<tr>
+<td align="center">c0或c^</td>
+<td align="left">删除光标处到到行首并插入,不包括光标处字符</td>
+</tr>
+<tr>
+<td align="center"><code>:</code>1, 10 m 20</td>
+<td align="left">将第1-10行移动到第20行之后</td>
+</tr>
+<tr>
+<td align="center"><code>~</code></td>
+<td align="left">交换大小写</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_8">复制文本</h2>
+<table>
+<thead>
+<tr>
+<th align="center">按键</th>
+<th align="left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">yy或Y</td>
+<td align="left">将当前行的内容放入临时缓冲区（yank命令）</td>
+</tr>
+<tr>
+<td align="center">nyy</td>
+<td align="left">将n行的内容放入临时缓冲区</td>
+</tr>
+<tr>
+<td align="center">yw</td>
+<td align="left">把光标当前所在的单词移到缓冲区</td>
+</tr>
+<tr>
+<td align="center">y$</td>
+<td align="left">把当前行及其以前的所有文本移到缓冲区</td>
+</tr>
+<tr>
+<td align="center">p</td>
+<td align="left">将临时缓冲区中的文本放入光标行下</td>
+</tr>
+<tr>
+<td align="center">P</td>
+<td align="left">将临时缓冲区中的文本放入光标行上</td>
+</tr>
+<tr>
+<td align="center">ddp</td>
+<td align="left">交换光标所在行和其下一行(dd剪切当前行，p粘贴当前行的下面)</td>
+</tr>
+<tr>
+<td align="center">"(a-z)nyy</td>
+<td align="left">复制n行放入名字为圆括号内的可命名缓冲区，省略n表示当前行</td>
+</tr>
+<tr>
+<td align="center">"(a-z)ndd</td>
+<td align="left">删除n行放入名字为圆括号内的可命名缓冲区，省略n表示当前行</td>
+</tr>
+<tr>
+<td align="center">"(a-z)p</td>
+<td align="left">将名字为圆括号的可命名缓冲区的内容放入当前行后</td>
+</tr>
+<tr>
+<td align="center">"(a-z)P</td>
+<td align="left">将名字为圆括号的可命名缓冲区的内容放入当前行前</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_9">撤消恢复</h2>
+<table>
+<thead>
+<tr>
+<th align="center">按键</th>
+<th align="left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">u</td>
+<td align="left">撤消最后一次修改</td>
+</tr>
+<tr>
+<td align="center">U</td>
+<td align="left">撤消当前行的所有修改</td>
+</tr>
+<tr>
+<td align="center">.</td>
+<td align="left">重复最后一次修改</td>
+</tr>
+<tr>
+<td align="center">CTRL+r</td>
+<td align="left">恢复上一次的撤消</td>
+</tr>
+<tr>
+<td align="center">"np</td>
+<td align="left">取回最后第n次的删除(缓冲区中存有一定次数的删除内容，一般为9)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_10">查找与替换</h2>
+<table>
+<thead>
+<tr>
+<th align="center">按键</th>
+<th align="left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">/text</td>
+<td align="left">在文件中向前查找text，转义字：.*[]^%/?~$</td>
+</tr>
+<tr>
+<td align="center">?text</td>
+<td align="left">在文件中向后查找text</td>
+</tr>
+<tr>
+<td align="center">n</td>
+<td align="left">在同一方向重复查找</td>
+</tr>
+<tr>
+<td align="center">N</td>
+<td align="left">在相反方向重复查找</td>
+</tr>
+<tr>
+<td align="center">fCHAR</td>
+<td align="left">行内向后查找</td>
+</tr>
+<tr>
+<td align="center">FCHAR</td>
+<td align="left">行内向前查找</td>
+</tr>
+<tr>
+<td align="center">nfCHAR</td>
+<td align="left">行内向后查找第三个CHAR</td>
+</tr>
+<tr>
+<td align="center">ttext</td>
+<td align="left">在当前行向前查找text，并将光标定位在text的第一个字符</td>
+</tr>
+<tr>
+<td align="center">Ttext</td>
+<td align="left">在当前行向后查找text，并将光标定位在text的第一个字符</td>
+</tr>
+<tr>
+<td align="center"><code>*</code></td>
+<td align="left">往后查找光标停留位置相同的词组</td>
+</tr>
+<tr>
+<td align="center"><code>#</code></td>
+<td align="left">向前查找光标停留位置相同的词组</td>
+</tr>
+<tr>
+<td align="center">g*</td>
+<td align="left">向下部分匹配光标所在处的单词</td>
+</tr>
+<tr>
+<td align="center">g#</td>
+<td align="left">向上部分匹配光标所在处的单词</td>
+</tr>
+<tr>
+<td align="center"><code>:</code>set ic</td>
+<td align="left">查找时忽略大小写</td>
+</tr>
+<tr>
+<td align="center"><code>:</code>set noic</td>
+<td align="left">查找时对大小写敏感</td>
+</tr>
+<tr>
+<td align="center"><code>:</code>nohlsearch</td>
+<td align="left">关闭当前的高亮显示，如果再次搜索或者按下n或N键，则会再次高亮。</td>
+</tr>
+<tr>
+<td align="center"><code>:</code>set incsearch</td>
+<td align="left">逐步搜索模式，对当前键入的字符进行搜索而不必等待键入完成。</td>
+</tr>
+<tr>
+<td align="center"><code>:</code>set wrapscan</td>
+<td align="left">重新搜索，在搜索到文件头或尾时，返回继续搜索，默认开启。</td>
+</tr>
+<tr>
+<td align="center"><code>:</code>s/OLD/NEW</td>
+<td align="left">用NEW替换OLD，替换当前行的第一个匹配，/可换成%</td>
+</tr>
+<tr>
+<td align="center"><code>:</code>s/OLD/NEW/g</td>
+<td align="left">用NEW替换OLD，替换当前行的所有匹配</td>
+</tr>
+<tr>
+<td align="center"><code>:</code>m,ns/OLD/NEW</td>
+<td align="left">在m到n行，用NEW替换OLD,“. ,$” ：从当前行到文件尾</td>
+</tr>
+<tr>
+<td align="center"><code>:</code>%s/OLD/NEW</td>
+<td align="left">全文用NEW替换OLD，替换所有行的第一个匹配</td>
+</tr>
+<tr>
+<td align="center"><code>:</code>%s/OLD/NEW/g</td>
+<td align="left">全文替换指定字符串,将g改为c，就会询问是否替换,p 表示替代结果逐行显示</td>
+</tr>
+<tr>
+<td align="center">&amp;</td>
+<td align="left">重复最后的<code>:</code>s命令</td>
+</tr>
+<tr>
+<td align="center"><code>:</code>g/text1/s/text2/text3</td>
+<td align="left">查找包含text1的行，用text3替换text2</td>
+</tr>
+<tr>
+<td align="center"><code>:</code>g/text/command</td>
+<td align="left">在所有包含text的行运行command所表示的命令</td>
+</tr>
+<tr>
+<td align="center"><code>:</code>v/text/command</td>
+<td align="left">在所有不包含text的行运行command所表示的命令</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_11">重复</h2>
+<table>
+<thead>
+<tr>
+<th align="center">按键</th>
+<th align="left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">,</td>
+<td align="left">以相反的方向重复前面的f、F、t或T查找命令</td>
+</tr>
+<tr>
+<td align="center">;</td>
+<td align="left">重复前面的f、F、t或T查找命令</td>
+</tr>
+<tr>
+<td align="center">n</td>
+<td align="left">重复前面的/或?查找命令</td>
+</tr>
+<tr>
+<td align="center">N</td>
+<td align="left">以相反方向重复前面的/或?命令</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_12">保存和退出</h2>
+<table>
+<thead>
+<tr>
+<th align="center">按键</th>
+<th align="left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>:</code>w</td>
+<td align="left">保存不退出</td>
+</tr>
+<tr>
+<td align="center"><code>:</code>w！</td>
+<td align="left">强制保存不退出</td>
+</tr>
+<tr>
+<td align="center"><code>:</code>w file</td>
+<td align="left">将修改保存为file不退出</td>
+</tr>
+<tr>
+<td align="center"><code>:</code>wq或ZZ或:x</td>
+<td align="left">保存文件并退出vi</td>
+</tr>
+<tr>
+<td align="center"><code>:</code>wq!</td>
+<td align="left">强行保存退出</td>
+</tr>
+<tr>
+<td align="center"><code>:</code>wqa</td>
+<td align="left">保存所有文件</td>
+</tr>
+<tr>
+<td align="center"><code>:</code>q!或ZQ</td>
+<td align="left">不保存文件，退出vi</td>
+</tr>
+<tr>
+<td align="center"><code>:</code>e</td>
+<td align="left">加载最新文件内容</td>
+</tr>
+<tr>
+<td align="center"><code>:</code>e file</td>
+<td align="left">把指定文件载入vi 进行编辑</td>
+</tr>
+<tr>
+<td align="center"><code>:</code>e!</td>
+<td align="left">放弃所有修改，从上次保存文件开始再编辑</td>
+</tr>
+</tbody>
+</table>
+<h2 id="vi">vi中的选项</h2>
+<table>
+<thead>
+<tr>
+<th align="center">按键</th>
+<th align="left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>:</code>set all</td>
+<td align="left">打印所有选项</td>
+</tr>
+<tr>
+<td align="center"><code>:</code>set nooption</td>
+<td align="left">关闭option选项</td>
+</tr>
+<tr>
+<td align="center"><code>:</code>set nu</td>
+<td align="left">每行前打印行号</td>
+</tr>
+<tr>
+<td align="center"><code>:</code>set showmode</td>
+<td align="left">显示是输入模式还是替换模式</td>
+</tr>
+<tr>
+<td align="center"><code>:</code>set noic</td>
+<td align="left">查找时忽略大小写</td>
+</tr>
+<tr>
+<td align="center"><code>:</code>set list</td>
+<td align="left">显示制表符(^I)和行尾符号</td>
+</tr>
+<tr>
+<td align="center"><code>:</code>set ts=8</td>
+<td align="left">为文本输入设置tab stops</td>
+</tr>
+<tr>
+<td align="center"><code>:</code>set window=n</td>
+<td align="left">设置文本窗口显示n行</td>
+</tr>
+</tbody>
+</table>
+<h2 id="vi_1">vi命令</h2>
+<table>
+<thead>
+<tr>
+<th align="center">按键</th>
+<th align="left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>:</code>.=</td>
+<td align="left">打印当前行的行号</td>
+</tr>
+<tr>
+<td align="center"><code>:</code>=</td>
+<td align="left">打印文件中的行数</td>
+</tr>
+<tr>
+<td align="center"><code>:</code>l</td>
+<td align="left">使用字母"l"来显示许多的特殊字符，如制表符和换行符</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_13">在文本中定位段落和放置标记</h2>
+<table>
+<thead>
+<tr>
+<th align="center">按键</th>
+<th align="left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">{</td>
+<td align="left">在第一列插入{来定义一个段落</td>
+</tr>
+<tr>
+<td align="center">[[</td>
+<td align="left">回到段落的开头处</td>
+</tr>
+<tr>
+<td align="center">]]</td>
+<td align="left">向前移到下一个段落的开头处</td>
+</tr>
+<tr>
+<td align="center">m(a-z)</td>
+<td align="left">用一个字母来标记当前位置，如用mz表示标记z</td>
+</tr>
+<tr>
+<td align="center">'(a-z)</td>
+<td align="left">将光标移动到指定的标记，如用'z表示移动到z</td>
+</tr>
+</tbody>
+</table>
+<h2 id="vi_2">在vi中连接行</h2>
+<table>
+<thead>
+<tr>
+<th align="center">按键</th>
+<th align="left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">J</td>
+<td align="left">将下一行连接到当前行的末尾</td>
+</tr>
+<tr>
+<td align="center">nJ</td>
+<td align="left">连接后面n行</td>
+</tr>
+</tbody>
+</table>
+<h2 id="vishell">vi中的shell转义命令</h2>
+<table>
+<thead>
+<tr>
+<th align="center">按键</th>
+<th align="left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>:</code>!command</td>
+<td align="left">执行shell的command命令，如:!ls</td>
+</tr>
+<tr>
+<td align="center"><code>:</code>!!</td>
+<td align="left">执行前一个shell命令</td>
+</tr>
+<tr>
+<td align="center"><code>:</code>r!command</td>
+<td align="left">读取command命令的输入并插入，如:r!ls会先执行ls，然后读入内容</td>
+</tr>
+<tr>
+<td align="center"><code>:</code>w!command</td>
+<td align="left">将当前已编辑文件作为command命令的标准输入并执行command命令，如:w!grep all</td>
+</tr>
+<tr>
+<td align="center"><code>:</code>cd directory</td>
+<td align="left">将当前工作目录更改为directory所表示的目录</td>
+</tr>
+<tr>
+<td align="center"><code>:</code>sh</td>
+<td align="left">将启动一个子shell，使用^d(ctrl+d)返回vi</td>
+</tr>
+<tr>
+<td align="center"><code>:</code>so file</td>
+<td align="left">在shell程序file中读入和执行命令</td>
+</tr>
+</tbody>
+</table>
+<h2 id="vi_3">vi中的宏与缩写</h2>
+<p>(避免使用控制键和符号，不要使用字符K、V、g、q、v、*、=和功能键)  </p>
+<table>
+<thead>
+<tr>
+<th align="center">按键</th>
+<th align="left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>:</code>map key commands</td>
+<td align="left">定义一个键来运行commands，如:map e ea，可以用e移到一个字的末尾来追加文本</td>
+</tr>
+<tr>
+<td align="center"><code>:</code>map</td>
+<td align="left">在状态行显示所有已定义的宏</td>
+</tr>
+<tr>
+<td align="center"><code>:</code>umap key</td>
+<td align="left">删除该键的宏</td>
+</tr>
+<tr>
+<td align="center"><code>:</code>ab string1 string2</td>
+<td align="left">定义一个缩写，使得当插入string1时，用string2替换string1。当要插入文本时，键入string1然后按Esc键，系统就插入了string2</td>
+</tr>
+<tr>
+<td align="center"><code>:</code>ab</td>
+<td align="left">显示所有缩写</td>
+</tr>
+<tr>
+<td align="center"><code>:</code>una string</td>
+<td align="left">取消string的缩写</td>
+</tr>
+</tbody>
+</table>
+<h2 id="vi_4">在vi中缩进文本</h2>
+<table>
+<thead>
+<tr>
+<th align="center">按键</th>
+<th align="left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">CTRL+i或tab</td>
+<td align="left">插入模式，插入移动的宽度，移动宽度是事先定义好的</td>
+</tr>
+<tr>
+<td align="center"><code>:</code>set ai</td>
+<td align="left">打开自动缩进</td>
+</tr>
+<tr>
+<td align="center"><code>:</code>set sw=n</td>
+<td align="left">将移动宽度设置为n个字符</td>
+</tr>
+<tr>
+<td align="center">n&lt;&lt;或&gt;n&gt;&gt;</td>
+<td align="left">使往下n行都向左（右）移动一个设定宽度</td>
+</tr>
+<tr>
+<td align="center">==</td>
+<td align="left">自动缩进当前行</td>
+</tr>
+<tr>
+<td align="center">: cd C:\Users\Hello\Desktop</td>
+<td align="left">切换目录</td>
+</tr>
+</tbody>
+</table>
+<h2 id="vim_1">vim配置</h2>
+<h3 id="vimrc">vimrc</h3>
+<p>windows下，打开gvim,使用<code>:vi $vim/_vimrc</code>打开配置文件
+linux下，使用<code>vi ~/.vimrc</code>打开配置文件</p>
+<p>```#!txt
+set nocompatible            "不要使用vi的键盘模式，而是vim自己的
+set gfn=Consolas:h12            "字体，大小
+set nu            "显示行号
+set list            "显示TAB
+set cursorline            "突出显示当前行"为光标所在行加下划线
+set encoding=utf-8            "编码
+set fileencodings=uft-8,gbk            "使用utf-8或gbk打开文件
+filetype on            "侦测文件类型</p>
+<p>set shortmess=atI            "不进入默认首页
+set showcmd            "显示命令行</p>
+<p>"set backup            "保留备份文件
+"set backupdir=$VIM/backup/            "保存备份到backup
+set nobackup            "不保留备份文件
+set noundofile            "不保留un~文件
+set noswapfile            "不生成swap文件</p>
+<p>set ruler            "打开状态栏标尺
+set laststatus=2            "总是显示状态行
+set showtabline=1            "标签栏的显示，0永远不显示 1两个以上显示 2 永远显示
+set statusline=%F%m%r%h%w[POS=%l,%v][%p%%]\%{strftime(\"%d/%m/%y\ -\ %H:%M\")}   "我的状态行显示的内容（包括文件类型和解码）</p>
+<p>set nowrapscan            "禁止在搜索到文件两端时重新搜索
+set incsearch            "输入搜索内容时就显示搜索结果
+set ignorecase            "检索时忽略大小写
+set hlsearch            "搜索时高亮显示被找到的文本</p>
+<p>set autoread            "当文件在外部被修改时，自动重新读取</p>
+<p>colorscheme desert            "设定配色方案
+syntax enable            "打开格式设置
+syntax on            "自动语法高亮</p>
+<p>set ai            "自动缩进
+set showmatch            "代码匹配"高亮显示匹配的括号
+set matchtime=5            "匹配括号高亮的时间（单位是十分之一秒）</p>
+<p>set expandtab            "4个空格代替tab
+set softtabstop=4            "统一缩进长度为4
+set shiftwidth=4            "自动缩进长度为4
+set tabstop=4            "设定 tab 长度为4</p>
+<p>set helplang=cn            "帮助系统设置为中文</p>
+<p>"set nowrap            "不要换行</p>
+<p>set foldmethod=syntax            "代码折叠
+set fdm=indent            "代码折叠
+set foldlevel=100            "启动vim时不要自动折叠代码
+nnoremap <space> zo            "代码折叠快捷键</p>
+<p>set formatoptions=tcrqn            "自动格式化
+set autoindent            "继承前一行的缩进方式，特别适用于多行注释
+set smartindent            "为C程序提供自动缩进
+set cindent            "使用C样式的缩进
+set smarttab            "在行和段开始处使用制表符</p>
+<p>set scrolloff=1            "光标移动到buffer的顶部和底部时保持n行距离
+set novisualbell            "不要闪烁</p>
+<p>set report=0            "通过使用: commands命令，告诉我们文件的哪一行被改变过
+set noerrorbells            "不让vim发出滴滴声
+set fillchars=vert:\ ,stl:\            "在被分割的窗口间显示空白，便于阅读 ,stlnc:加了这个wm分割兰有\
+set mouse=a            "可以在buffer的任何地方使用鼠标（类似office中在工作区双击鼠标定位）
+set selection=exclusive            "选择模式为单独
+set selectmode=mouse,key            "选择方式为鼠标键盘</p>
+<p>set viminfo+=!            "保存全局变量
+set history=300            "history文件中需要记录的行数</p>
+<p>set magic            "设置正表达式
+set backspace=indent,eol,start  "这指明在插入模式下在哪里允许 <BS> 删除光标前面的字符"逗号分隔的三个值分别指：行首的空白字符，换行符和插入模式开始处之前的字符。</p>
+<p>let Tlist_Show_One_File=1    "不同时显示多个文件的tag，只显示当前文件的
+let Tlist_Exit_OnlyWindow=1    "如果taglist窗口是最后一个窗口,则退出vim
+let autosave=15            "15s,自动保存文件</p>
+<p>au BufRead,BufNewFile,BufEnter * cd %:p:h "自动切换目录为当前编辑文件所在目录
+"保存到指定文档
+if has(isdirectory('$HOME\Desktop\'))
+    exec 'cd ' . fnameescape('$HOME\Desktop\')</p>
+<p>if has("gui_running")            "如果是图形界面
+    set guioptions=m            "关闭菜单栏
+    set guioptions=t            "关闭工具栏
+"    set guioptions=L            "启动左边的滚动条
+"    set guioptions+=r            "启动右边的滚动条
+"    set guioptions+=b            "启动下边的滚动条
+    set clipboard+=unnamed            "共享剪贴板
+endif
+"if has("win32")
+"    colorscheme torte    "torte配色方案
+"    set guifont=Consolas:h12 "字体和大小
+"endif</p>
+<p>"--------------end self config-------------------</p>
+<pre><code>
+自动打开上一个文本
+
+```#!txt
+&quot;Go to last file(s) if invoked without arguments.
+autocmd VimLeave * nested if (!isdirectory($HOME . &quot;/.vim&quot;)) |
+    \ call mkdir($HOME . &quot;/.vim&quot;) |
+    \ endif |
+    \ execute &quot;mksession! &quot;. $HOME . &quot;/.vim/Session.vim&quot;
+
+autocmd VimEnter * nested if argc() == 0 &amp;&amp; filereadable($HOME . &quot;/.vim/Session.vim&quot;) |
+    \ execute &quot;source &quot;. $HOME . &quot;/.vim/Session.vim&quot;
+</code></pre>
+
+<p>文件管理器设置</p>
+<p><code>#!txt
+"MiniBufExplorer
+let g:miniBufExplMapWindowNavVim = 1
+let g:miniBufExplMapWindowNavArrows = 1
+let g:miniBufExplMapCTabSwitchBufs = 1
+let g:miniBufExplModSelTarget = 1</code></p>
+<h2 id="gvim">gvim不生成备份文件</h2>
+<p>打开vimrc_example.vim文件，找到下面的代码：</p>
+<pre><code>```#!txt
+if has("vms")
+    set nobackup "do not keep a backup file, use versions instead
+else
+    set backup "keep a backup file
+endif
+```
+</code></pre>
+<p>注释掉else后面的内容</p></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

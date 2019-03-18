@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>vimium - My Docs</title>
+        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="..">My Docs</a>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li >
+                                <a href="..">Welcome to MkDocs</a>
+                            </li>
+                            <li >
+                                <a href="../bash shell 简单使用/">bash shell 简单使用</a>
+                            </li>
+                            <li >
+                                <a href="../docker/">docker install</a>
+                            </li>
+                            <li >
+                                <a href="../git/">Git</a>
+                            </li>
+                            <li >
+                                <a href="../hello-world/">Hello World</a>
+                            </li>
+                            <li >
+                                <a href="../install jenkins/">install jenkins</a>
+                            </li>
+                            <li >
+                                <a href="../linux  ifcfg eth 配置/">linux ifcfg eth 配置</a>
+                            </li>
+                            <li >
+                                <a href="../linux install mysql/">MySQL Install</a>
+                            </li>
+                            <li >
+                                <a href="../linux 压缩解压类命令/">linux 压缩解压类 命令</a>
+                            </li>
+                            <li >
+                                <a href="../linux 防火墙/">防火墙设置</a>
+                            </li>
+                            <li >
+                                <a href="../python3 selenium简单使用/">selenium python</a>
+                            </li>
+                            <li >
+                                <a href="../python3随机生成手机号/">python3随机生成手机号</a>
+                            </li>
+                            <li >
+                                <a href="../python3随机生成身份证/">python3随机生成身份证</a>
+                            </li>
+                            <li >
+                                <a href="../python3随机生成银行卡号/">python3随机生成银行卡号</a>
+                            </li>
+                            <li >
+                                <a href="../vim/">vim</a>
+                            </li>
+                            <li class="active">
+                                <a href="./">vimium</a>
+                            </li>
+                            <li >
+                                <a href="../win apache python wsgi/">windows在apache中使用mod_wsgi部署flask</a>
+                            </li>
+                            <li >
+                                <a href="../windows install mysql/">win10 下 安装 mysql 8</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li >
+                                <a rel="next" href="../vim/">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li >
+                                <a rel="prev" href="../win apache python wsgi/">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#vimium-help">Vimium Help</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="vimium-help">Vimium Help</h1>
+<table>
+<thead>
+<tr>
+<th align="center">command</th>
+<th align="left">en</th>
+<th align="left">cn</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Navigating the page</td>
+<td align="left">---</td>
+<td align="left">---</td>
+</tr>
+<tr>
+<td align="center">j, <code>&lt;</code>c-e&gt;</td>
+<td align="left">Scroll down</td>
+<td align="left">向下移动（CTRL+e）</td>
+</tr>
+<tr>
+<td align="center">k, <code>&lt;</code>c-y&gt;</td>
+<td align="left">Scroll up</td>
+<td align="left">向上移动（CTRL+y）</td>
+</tr>
+<tr>
+<td align="center">gg</td>
+<td align="left">Scroll to the top of the page</td>
+<td align="left">跳到页面顶部</td>
+</tr>
+<tr>
+<td align="center">G</td>
+<td align="left">Scroll to the bottom of the page</td>
+<td align="left">跳到页面底部</td>
+</tr>
+<tr>
+<td align="center">d</td>
+<td align="left">Scroll a half page down</td>
+<td align="left">向下翻页</td>
+</tr>
+<tr>
+<td align="center">u</td>
+<td align="left">Scroll a half page up</td>
+<td align="left">向上翻页</td>
+</tr>
+<tr>
+<td align="center">h</td>
+<td align="left">Scroll left</td>
+<td align="left">向左移动</td>
+</tr>
+<tr>
+<td align="center">l</td>
+<td align="left">Scroll right</td>
+<td align="left">向右移动</td>
+</tr>
+<tr>
+<td align="center">zH</td>
+<td align="left">Scroll all the way to the left</td>
+<td align="left">移动到最左</td>
+</tr>
+<tr>
+<td align="center">zL</td>
+<td align="left">Scroll all the way to the right</td>
+<td align="left">移动到最右</td>
+</tr>
+<tr>
+<td align="center">r</td>
+<td align="left">Reload the page</td>
+<td align="left">刷新页面</td>
+</tr>
+<tr>
+<td align="center">yy</td>
+<td align="left">Copy the current URL to the clipboard</td>
+<td align="left">拷贝当前页面的URL到剪贴板</td>
+</tr>
+<tr>
+<td align="center">p</td>
+<td align="left">Open the clipboard's URL in the current tab</td>
+<td align="left">在当前页打开剪贴板的地址</td>
+</tr>
+<tr>
+<td align="center">P</td>
+<td align="left">Open the clipboard's URL in a new tab</td>
+<td align="left">在新页面打开剪贴板的地址</td>
+</tr>
+<tr>
+<td align="center">gu</td>
+<td align="left">Go up the URL hierarchy</td>
+<td align="left">跳转到父页面（url往上一个/）</td>
+</tr>
+<tr>
+<td align="center">gU</td>
+<td align="left">Go to root of current URL hierarchy</td>
+<td align="left">跳转到根页面（url的hosts一级）</td>
+</tr>
+<tr>
+<td align="center">i</td>
+<td align="left">Enter insert mode</td>
+<td align="left">插入模式</td>
+</tr>
+<tr>
+<td align="center">v</td>
+<td align="left">Enter visual mode</td>
+<td align="left">可视模式</td>
+</tr>
+<tr>
+<td align="center">V</td>
+<td align="left">Enter visual line mode</td>
+<td align="left">行可视模式</td>
+</tr>
+<tr>
+<td align="center">gi</td>
+<td align="left">Focus the first text input on the page</td>
+<td align="left">到第一个文本框插入</td>
+</tr>
+<tr>
+<td align="center">f</td>
+<td align="left">Open a link in the current tab</td>
+<td align="left">Hint模式，在本页面打开待选择的链接</td>
+</tr>
+<tr>
+<td align="center">F</td>
+<td align="left">Open a link in a new tab</td>
+<td align="left">Hint模式，在新页面打开待选择的链接</td>
+</tr>
+<tr>
+<td align="center"><code>&lt;</code>a-f&gt;</td>
+<td align="left">Open multiple links in a new tab</td>
+<td align="left">Hint模式，在新页面打开待选择的多个链接（ALT+f）</td>
+</tr>
+<tr>
+<td align="center">yf</td>
+<td align="left">Copy a link URL to the clipboard</td>
+<td align="left">拷贝某一个URL到剪贴板（y拷f选择，选择后生效）</td>
+</tr>
+<tr>
+<td align="center">[[</td>
+<td align="left">Follow the link labeled previous or &lt;</td>
+<td align="left">转到当前页之前标记的链接</td>
+</tr>
+<tr>
+<td align="center">]]</td>
+<td align="left">Follow the link labeled next or &gt;</td>
+<td align="left">转到当前页之后标记的链接</td>
+</tr>
+<tr>
+<td align="center">gf</td>
+<td align="left">Select the next frame on the page</td>
+<td align="left">到当前页面的下一层框架</td>
+</tr>
+<tr>
+<td align="center">gF</td>
+<td align="left">Select the page's main/top frame</td>
+<td align="left">到当前页面的最上层框架</td>
+</tr>
+<tr>
+<td align="center">m</td>
+<td align="left">Create a new mark</td>
+<td align="left">创建一个标记（按下后，接一个字母）</td>
+</tr>
+<tr>
+<td align="center">`</td>
+<td align="left">Go to a mark</td>
+<td align="left">跳到一个标记（按下后，接用m标记过的字母）</td>
+</tr>
+<tr>
+<td align="center"><strong>Using the vomnibar</strong></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center">o</td>
+<td align="left">Open URL, bookmark or history entry</td>
+<td align="left">在当前页打开网址，书签，历史记录</td>
+</tr>
+<tr>
+<td align="center">O</td>
+<td align="left">Open URL, bookmark or history entry in a new tab</td>
+<td align="left">在新页面打开网址，书签，历史记录</td>
+</tr>
+<tr>
+<td align="center">b</td>
+<td align="left">Open a bookmark</td>
+<td align="left">在当前页打开书签</td>
+</tr>
+<tr>
+<td align="center">B</td>
+<td align="left">Open a bookmark in a new tab</td>
+<td align="left">在新的标签页打开书签</td>
+</tr>
+<tr>
+<td align="center">T</td>
+<td align="left">Search through your open tabs</td>
+<td align="left">在所有打开的标签页查找跳转</td>
+</tr>
+<tr>
+<td align="center">ge</td>
+<td align="left">Edit the current URL</td>
+<td align="left">编辑当前地址，回车在本页面打开</td>
+</tr>
+<tr>
+<td align="center">gE</td>
+<td align="left">Edit the current URL and open in a new tab</td>
+<td align="left">编辑当前地址，回车在新页面打开</td>
+</tr>
+<tr>
+<td align="center"><strong>Using find</strong></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center">/</td>
+<td align="left">Enter find mode</td>
+<td align="left">查找</td>
+</tr>
+<tr>
+<td align="center">n</td>
+<td align="left">Cycle forward to the next find match</td>
+<td align="left">向下查找内容</td>
+</tr>
+<tr>
+<td align="center">N</td>
+<td align="left">Cycle backward to the previous find match</td>
+<td align="left">向上查找内容</td>
+</tr>
+<tr>
+<td align="center"><strong>Navigating history</strong></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center">H</td>
+<td align="left">Go back in history</td>
+<td align="left">退到上一个历史页面</td>
+</tr>
+<tr>
+<td align="center">L</td>
+<td align="left">Go forward in history</td>
+<td align="left">进到下一个历史页面</td>
+</tr>
+<tr>
+<td align="center"><strong>Manipulating tabs</strong></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center">t</td>
+<td align="left">Create new tab</td>
+<td align="left">创建一个新的标签页</td>
+</tr>
+<tr>
+<td align="center">J, gT</td>
+<td align="left">Go one tab left</td>
+<td align="left">跳转到右边的一个标签页</td>
+</tr>
+<tr>
+<td align="center">K, gt</td>
+<td align="left">Go one tab right</td>
+<td align="left">跳转到右边的一个标签页</td>
+</tr>
+<tr>
+<td align="center">^</td>
+<td align="left">Go to previously-visited tab</td>
+<td align="left">切换到之前浏览在窗口</td>
+</tr>
+<tr>
+<td align="center">g0</td>
+<td align="left">Go to the first tab</td>
+<td align="left">移动到第一个标签页</td>
+</tr>
+<tr>
+<td align="center">g$</td>
+<td align="left">Go to the last tab</td>
+<td align="left">移动到最后一个标签页</td>
+</tr>
+<tr>
+<td align="center">yt</td>
+<td align="left">Duplicate current tab</td>
+<td align="left">复制当前页到新标签页</td>
+</tr>
+<tr>
+<td align="center"><code>&lt;</code>a-p&gt;</td>
+<td align="left">Pin or unpin current tab</td>
+<td align="left">使当前页的标签最小化（再按还原）</td>
+</tr>
+<tr>
+<td align="center"><code>&lt;</code>a-m&gt;</td>
+<td align="left">Mute or unmute current tab</td>
+<td align="left">使当前页静音（再按取消静音）</td>
+</tr>
+<tr>
+<td align="center">x</td>
+<td align="left">Close current tab</td>
+<td align="left">关闭当前的标签页</td>
+</tr>
+<tr>
+<td align="center">X</td>
+<td align="left">Restore closed tab</td>
+<td align="left">恢复刚刚关闭的标签页</td>
+</tr>
+<tr>
+<td align="center">W</td>
+<td align="left">Move tab to new window</td>
+<td align="left">移动标签页到新窗口</td>
+</tr>
+<tr>
+<td align="center">&lt;&lt;</td>
+<td align="left">Move tab to the left</td>
+<td align="left">往左移动标签页</td>
+</tr>
+<tr>
+<td align="center"><code>&gt;</code>&gt;</td>
+<td align="left">Move tab to the right</td>
+<td align="left">往右移动标签页</td>
+</tr>
+<tr>
+<td align="center"><strong>Miscellaneous</strong></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center">?</td>
+<td align="left">Show help</td>
+<td align="left">显示命令帮助（再按关闭）</td>
+</tr>
+<tr>
+<td align="center">gs</td>
+<td align="left">View page source</td>
+<td align="left">查看页面源代码</td>
+</tr>
+</tbody>
+</table>
+<p>F6定位并选择地址栏  </p></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

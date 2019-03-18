@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>bash shell 简单使用 - My Docs</title>
+        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="..">My Docs</a>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li >
+                                <a href="..">Welcome to MkDocs</a>
+                            </li>
+                            <li class="active">
+                                <a href="./">bash shell 简单使用</a>
+                            </li>
+                            <li >
+                                <a href="../docker/">docker install</a>
+                            </li>
+                            <li >
+                                <a href="../git/">Git</a>
+                            </li>
+                            <li >
+                                <a href="../hello-world/">Hello World</a>
+                            </li>
+                            <li >
+                                <a href="../install jenkins/">install jenkins</a>
+                            </li>
+                            <li >
+                                <a href="../linux  ifcfg eth 配置/">linux ifcfg eth 配置</a>
+                            </li>
+                            <li >
+                                <a href="../linux install mysql/">MySQL Install</a>
+                            </li>
+                            <li >
+                                <a href="../linux 压缩解压类命令/">linux 压缩解压类 命令</a>
+                            </li>
+                            <li >
+                                <a href="../linux 防火墙/">防火墙设置</a>
+                            </li>
+                            <li >
+                                <a href="../python3 selenium简单使用/">selenium python</a>
+                            </li>
+                            <li >
+                                <a href="../python3随机生成手机号/">python3随机生成手机号</a>
+                            </li>
+                            <li >
+                                <a href="../python3随机生成身份证/">python3随机生成身份证</a>
+                            </li>
+                            <li >
+                                <a href="../python3随机生成银行卡号/">python3随机生成银行卡号</a>
+                            </li>
+                            <li >
+                                <a href="../vim/">vim</a>
+                            </li>
+                            <li >
+                                <a href="../vimium/">vimium</a>
+                            </li>
+                            <li >
+                                <a href="../win apache python wsgi/">windows在apache中使用mod_wsgi部署flask</a>
+                            </li>
+                            <li >
+                                <a href="../windows install mysql/">win10 下 安装 mysql 8</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li >
+                                <a rel="next" href="..">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li >
+                                <a rel="prev" href="../docker/">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#_1">直接弄点会的上来</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="_1">直接弄点会的上来</h1>
+<pre><code class="bash">#!/bin/bash
+
+if [ -f /home/public ] ; then
+    cd /home/public
+else
+    sudo mkdir /home/public
+    cd /home/public
+fi
+
+mkdir workspace
+cd workspace
+
+# 获取当前目录
+WORK_DIR=`pwd`
+
+# 输出当前目录
+echo ${WORK_DIR}
+
+# 获取当前用户名
+USER_NAME=`whoami`
+
+# 输出当前用户名
+echo ${USER_NAME}
+
+# 创建test文本
+touch test.txt
+
+# 获取目录下文件
+TEST_FILE=${WORK_DIR}/test.txt
+
+# 输出当前目录下文件
+echo ${TEST_FILE}
+
+# 获取外网地址
+NETADDR_OUTER=`curl http://members.3322.org/dyndns/getip`
+
+# 获取内网地址
+NETADDR_INNER=`/sbin/ifconfig | grep &quot;inet addr&quot; | grep -v &quot;127.0.0.1&quot; | cut -d ':' -f2 | awk '{print $1}'`
+
+# 优先使用内网
+if [ &quot;${NETADDR_INNER}&quot; = &quot;&quot; ] ; then
+    NETADDR_INNER=${NETADDR_OUTER}
+fi
+
+# 文件追加内容
+echo -e &quot;NETADDR_OUTER:${NETADDR_OUTER}\nNETADDR_INNER:${NETADDR_INNER}&quot;  &gt;&gt;文件名
+
+# 追加文件
+sed '$a\eof'  ${TEST_FILE}
+
+# 输出文件内容
+echo `cat ${TEST_FILE}`
+
+# 读取文件内容
+key_vlaue=`cat ${TEST_FILE} | grep 'NETADDR_OUTER' | awk -F':' '{ print  $2 }'`
+
+# 输出参数
+echo -n &quot;不换行\n&quot;
+echo  &quot;默认换行&quot;
+echo -e &quot;转译换行\n&quot;
+
+# 检查IP
+ip=${NETADDR_OUTER}
+echo $ip | perl -ne 'exit 1 unless /\b(?:(?:(?:[01]?\d{1,2}|2[0-4]\d|25[0-5])\.){3}(?:[01]?\d{1,2}|2[0-4]\d|25[0-5]))\b/'
+if [ $? -eq 1 ]
+    then
+    echo &quot;$ip is not availd ip ...&quot;
+    exit
+fi
+
+# 等待人工输入
+while true
+do            
+echo -e  &quot;Are you Sure?  if you input n, bash will exit and you can change the config  [y/n]&quot;
+read  -r input
+case $input in
+    [yY][eE][sS]|[yY])
+    break
+esac
+    exit
+done
+
+# 循环
+loop(){
+    while true
+        do
+            echo -e  &quot;do&quot;
+        case 
+            echo -e &quot;case do&quot;
+        esac
+            echo -e &quot;esac do&quot;
+            exit
+    done
+}
+
+# 创建目录
+mkdir test
+
+if [ -d ${WORK_DIR}/test ] ; then
+    rm -rf ${WORK_DIR}/test
+    echo &quot;delete ${WORK_DIR}/test&quot;
+fi
+
+# 创建文件
+touch lib1 lib2 lib3
+
+# 增加执行权限（单条命令换行）
+if [ ! -x lib1 ] ; then
+    chmod +x lib1 \
+    lib2 \
+    lib3
+fi
+
+# 创建软链接
+ln -s -f lib1 libone
+ln -s -f lib2 libtwo
+ln -s -f lib3 libthree
+
+# 使用环境变量生效
+source_env(){
+    tar -xf ${1}
+    rm -rf ${1}
+    if [ -f /etc/profile.d/${2} ] ; then 
+        sudo rm /etc/profile.d/${2}
+        echo &quot;remove the old env file.&quot;
+    fi
+    dos2unix ./${2}
+    sudo mv ${2} /etc/profile.d/
+    sudo chown ${USER_NAME}:users /etc/profile.d/${2}
+    sudo chmod 700 /etc/profile.d/${2}
+    source /etc/profile.d/${2}
+    echo &quot;source env success.&quot;
+}
+
+# 修改工作目录下test文件内容
+if [ -d ${WORK_DIR} ] ; then
+    cd ${WORK_DIR}
+    if [ -f ${TEST_FILE} ] ; then
+        sed -i '/NETADDR_OUTER/c\NETADDR_SED' ${TEST_FILE}
+    echo -e &quot;modify ${TEST_FILE} success.\n&quot;
+    fi
+fi
+
+# 后台打开文件
+nohup vi ${TEST_FILE} &gt;/dev/null 2&gt;&amp;1 &amp;
+
+# 强制结束vi进程
+echo -e  &quot;NOW will stop Server\n&quot;
+PID=`ps -ef |grep ${USER_NAME}|grep ${TEST_FILE}|grep -v &quot;grep&quot;|awk '{print  $2}'`
+# PID=`ps -ef |grep ${USER_NAME}|grep servername|grep -v &quot;grep&quot;|awk '{print  $2}'|awk '{a=$0;getline;print a,$0}'`
+kill -9 ${PID}
+
+# 重启tomcat6
+start_server(){
+    PID=`ps -ef |grep ${USER_NAME}|grep tomcat6|grep -v &quot;grep&quot;|awk '{print  $2}'`
+     # PID=`ps -ef |grep ${USER_NAME}|grep servername|grep -v &quot;grep&quot;|awk '{print  $2}'|awk '{a=$0;getline;print a,$0}'`
+    kill -9 ${PID}
+    echo -e  &quot;NOW will start Server\n&quot;
+    cd ${HOME}
+    if [ -f  tomcat6/bin/startup.sh ] ; then
+        sh tomcat6/bin/startup.sh
+    fi
+    if [ -f  App/app ] ; then
+        nohup App/app &gt;/dev/null 2&gt;&amp;1 &amp;
+    fi
+}
+</code></pre></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

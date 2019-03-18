@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>python3随机生成银行卡号 - My Docs</title>
+        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="..">My Docs</a>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li >
+                                <a href="..">Welcome to MkDocs</a>
+                            </li>
+                            <li >
+                                <a href="../bash shell 简单使用/">bash shell 简单使用</a>
+                            </li>
+                            <li >
+                                <a href="../docker/">docker install</a>
+                            </li>
+                            <li >
+                                <a href="../git/">Git</a>
+                            </li>
+                            <li >
+                                <a href="../hello-world/">Hello World</a>
+                            </li>
+                            <li >
+                                <a href="../install jenkins/">install jenkins</a>
+                            </li>
+                            <li >
+                                <a href="../linux  ifcfg eth 配置/">linux ifcfg eth 配置</a>
+                            </li>
+                            <li >
+                                <a href="../linux install mysql/">MySQL Install</a>
+                            </li>
+                            <li >
+                                <a href="../linux 压缩解压类命令/">linux 压缩解压类 命令</a>
+                            </li>
+                            <li >
+                                <a href="../linux 防火墙/">防火墙设置</a>
+                            </li>
+                            <li >
+                                <a href="../python3 selenium简单使用/">selenium python</a>
+                            </li>
+                            <li >
+                                <a href="../python3随机生成手机号/">python3随机生成手机号</a>
+                            </li>
+                            <li >
+                                <a href="../python3随机生成身份证/">python3随机生成身份证</a>
+                            </li>
+                            <li class="active">
+                                <a href="./">python3随机生成银行卡号</a>
+                            </li>
+                            <li >
+                                <a href="../vim/">vim</a>
+                            </li>
+                            <li >
+                                <a href="../vimium/">vimium</a>
+                            </li>
+                            <li >
+                                <a href="../win apache python wsgi/">windows在apache中使用mod_wsgi部署flask</a>
+                            </li>
+                            <li >
+                                <a href="../windows install mysql/">win10 下 安装 mysql 8</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li >
+                                <a rel="next" href="../python3随机生成身份证/">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li >
+                                <a rel="prev" href="../vim/">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#_1">做一个声明，这个只用于内部测试！</a></li>
+        <li class="main "><a href="#_2">直接上代码</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="_1">做一个声明，这个只用于内部测试！</h1>
+<h1 id="_2">直接上代码</h1>
+<pre><code class="python">#!/usr/bin/env python3
+# coding:utf-8
+'''
+随机银行卡
+'''
+import copy
+import json
+import math
+import random
+
+import requests
+
+# 维萨卡（VISACARD）
+VISA_PREFIX_LIST = [
+    &quot;4539&quot;, &quot;4556&quot;, &quot;4916&quot;, &quot;4532&quot;, &quot;4929&quot;, &quot;40240071&quot;, &quot;4485&quot;, &quot;4716&quot;, &quot;4&quot;
+]
+# 万事达卡（MasterCard）
+MASTERCARD_PREFIX_LIST = [&quot;51&quot;, &quot;52&quot;, &quot;53&quot;, &quot;54&quot;, &quot;55&quot;]
+# 美国运通卡（AmericanExpressCard）
+AMEX_PREFIX_LIST = [&quot;34&quot;, &quot;37&quot;]
+# 发现卡(Discover Card)
+DISCOVER_PREFIX_LIST = [&quot;6011&quot;]
+# 大莱卡（DinersCard）
+DINERS_PREFIX_LIST = [&quot;300&quot;, &quot;301&quot;, &quot;302&quot;, &quot;303&quot;, &quot;36&quot;, &quot;38&quot;]
+# enRoute（credit card issued by Air Canada until 1992）
+ENROUTE_PREFIX_LIST = [&quot;2014&quot;, &quot;2149&quot;]
+# JCB卡（JAPANCREDITBUREAUCARD）
+JCB_PREFIX_LIST = [&quot;35&quot;]
+# Voyager Credit Card
+VOYAGER_PREFIX_LIST = [&quot;8699&quot;]
+# 中国银联
+China_UnionPay_PREFIX_LIST = [&quot;62&quot;]
+# 常用
+CUP_PREFIX_LIST = {
+    '622220': '中国工商银行',
+    '622258': '中国交通银行',
+    '622707': '中国建设银行',
+    '622580': '中国招商银行',
+    '622150': '中国邮政储蓄银行',
+    '622273': '中国银行',
+    '623058': '平安银行'
+}
+BANK_CODE_LIST = {
+    'CCB': '中国建设银行',
+    'ABC': '中国农业银行',
+    'ICBC': '中国工商银行',
+    'CDB': '国家开发银行',
+    'BCCB': '北京市商业银行',
+    'HSBC': '汇丰银行',
+    'PBC': '中国人民银行',
+    'BOC': '中国银行',
+    'CMBC': '中国民生银行',
+    'CMB': '招商银行',
+    'CIB': '兴业银行',
+    'BCM': '交通银行',
+    'CEB': '中国光大银行',
+    'GDB': '广东发展银行',
+    'SPABANK': '平安银行'
+}
+CARD_TYPE_LIST = {'DC': &quot;储蓄卡&quot;, 'CC': &quot;信用卡&quot;, 'SCC': &quot;准贷记卡&quot;, 'PC': &quot;预付费卡&quot;}
+
+
+def completed_number(ccnumber, length):
+    # generate digits
+    while len(ccnumber) &lt; (length - 1):
+        digit = str(random.randint(0, 9))
+        ccnumber = ccnumber + digit
+    # Calculate sum
+    sum = 0
+    pos = 0
+    reversed_ccnumber = []
+    reversed_ccnumber.extend(ccnumber)
+    reversed_ccnumber.reverse()
+    while pos &lt; length - 1:
+        # 卡号从右往左看，偶数位数乘以2
+        odd = int(reversed_ccnumber[pos]) * 2
+        # 如果乘以2后的数为两位数(值大于9)则减去9
+        if odd &gt; 9:
+            odd -= 9
+        # 然后将所有的位数进行累加
+        sum += odd
+        if pos != (length - 2):
+            sum += int(reversed_ccnumber[pos + 1])
+        # 偶数位从0开始，加2循环
+        pos += 2
+    # Calculate check digit
+    # 最后一位当做是校验位，用来补齐到能够整除10
+    # TODO
+    # t = 10 - sum % 10
+    # ccnumber += str(0 if t == 10 else t)
+    # math.floor 向下取整
+    checkdigit = int(((math.floor(sum / 10) + 1) * 10 - sum) % 10)
+    ccnumber = str(ccnumber) + str(checkdigit)
+    # TODO end
+    return ccnumber
+
+
+def get_bank_number(prefixList=None, length=None):
+    if prefixList is None:
+        prefixList = list(CUP_PREFIX_LIST.keys())
+    if length is None:
+        length = 16
+    ccnumber = copy.copy(random.choice(prefixList))
+    ccnumber = '622707'
+    bank_number = completed_number(ccnumber, length)
+    return bank_number
+
+
+def is_bank_number(bank_number):
+    try:
+        url = 'https://ccdcapi.alipay.com/validateAndCacheCardInfo.json?\
+        _input_charset=utf-8&amp;cardNo=%s&amp;cardBinCheck=true' % bank_number
+        r = requests.get(url)
+        data = r.text
+        data = json.loads(data)
+        # print(data)
+        validated = data['validated']
+        cardType = None
+        bank = None
+        if validated is True:
+            cardType = CARD_TYPE_LIST[data['cardType']]
+            bank = BANK_CODE_LIST[data['bank']]
+            print(cardType, bank)
+        return validated, cardType, bank
+    except Exception as e:
+        if isinstance(bank_number, int):
+            bank_number = str(bank_number)
+        mod10Count = 0
+        reversed_ccnumber = list(reversed(bank_number))
+
+        for i in range(0, len(bank_number) - 1):
+            augend = reversed_ccnumber[i]
+            if ((i + 1) % 2) == 0:
+                productString = str(augend * 2)
+                augend = 0
+                for j in range(0, len(productString)):
+                    augend += int(productString[j])
+            mod10Count += int(augend)
+        digits = [int(x) for x in reversed(str(bank_number))]
+        check_sum = sum(digits[::2]) + sum(
+            (dig // 10 + dig % 10) for dig in [2 * el for el in digits[1::2]])
+        print(check_sum, mod10Count)
+        return (mod10Count % 10) == 0
+
+
+if __name__ == &quot;__main__&quot;:
+    bank_number = '6217000010104124329'
+    bank_number = get_bank_number()
+    print(bank_number)
+    print(is_bank_number(bank_number))
+</code></pre></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
